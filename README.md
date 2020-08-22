@@ -1,2 +1,3 @@
-# go-learning
-Learning go lang
+# Go Learning
+
+Learning go
