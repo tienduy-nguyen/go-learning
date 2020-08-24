@@ -1,15 +1,7 @@
 package main
 
-import "fmt"
-
 func main() {
-	// var card string = "Ace of Spades"
-	// := using only when declare an variable
-	card := newCard()
+	cards := newDeckFromFile("my_cards")
+	cards.print()
 
-	fmt.Println(card)
-}
-
-func newCard() string {
-	return "Five of Diamonds"
 }
