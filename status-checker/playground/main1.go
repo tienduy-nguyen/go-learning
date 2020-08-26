@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/fatih/color"
 	"net/http"
 )
@@ -14,28 +15,16 @@ func main() {
 		"https://amazon.com",
 	}
 
-	c := make(chan string)
-
 	for _, link := range links {
-		go checkLink(link, c)
-
+		checkLink(link)
 	}
-	for {
-		go checkLink(<-c, c)
-	}
-
-	// time.Sleep(time.Second)
 }
 
-func checkLink(link string, c chan string) {
+func checkLink(link string) {
 	_, err := http.Get(link)
 	if err != nil {
-		print(link)
-		color.Red(" might be down!")
-		c <- link
-		return
+		color.Red(link, "might be down!")
+	} else {
+		fmt.Println(link, "is up!")
 	}
-	print(link)
-	color.Green(" is up!")
-	c <- link
 }
