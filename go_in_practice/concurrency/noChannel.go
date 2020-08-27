@@ -12,7 +12,7 @@ func count() {
 	}
 }
 
-func main() {
+func mainNoChannel() {
 	go count()
 	time.Sleep(time.Millisecond * 2)
 	fmt.Println("Hello World")
