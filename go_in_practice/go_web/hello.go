@@ -9,7 +9,7 @@ func hello(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprint(res, "Hello, my name is Inigo MOntoya")
 }
 
-func main_hello() {
+func mainHello() {
 	http.HandleFunc("/", hello)
 	http.ListenAndServe("localhost:4000", nil)
 }
